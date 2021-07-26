@@ -11,7 +11,7 @@ print ("CPU Count", psutil.cpu_count())
 
 #print ("CPU Count", psutil.getloadavg())
 #print  (psutil.disk_usage('/'))  #all
-print ("Disk Space Usage", psutil.disk_usage(os.sep).percent, "%")
+print ("Disk Space Used", psutil.disk_usage(os.sep).percent, "%")
 
 
 
