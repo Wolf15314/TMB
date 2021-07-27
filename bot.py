@@ -2,8 +2,8 @@
 from config import TOKEN
 import logging
 import os
-import time
-import operator
+import timedocker
+import operatorins
 from datetime import datetime
 import psutil
 from aiogram import Bot, Dispatcher, executor, types
@@ -104,24 +104,7 @@ async def echo(message: types.Message):
                 pidsreply
         await message.answer(reply)
     else:
-        await message.answer ("What do you mean? " + message.text)
-
-
-        #            memory = psutil.virtual_memory()
-         #           disk = psutil.disk_usage('/')
-          #          boottime = datetime.fromtimestamp(psutil.boot_time())
-           #         now = datetime.now()
-            #        timedif = "Online for: %.1f Hours" % (((now - boottime).total_seconds()) / 3600)
-             #       memtotal = "Total memory: %.2f GB " % (memory.total / 1000000000)
-              #      memavail = "Available memory: %.2f GB" % (memory.available / 1000000000)
-               #     memuseperc = "Used memory: " + str(memory.percent) + " %"
-                #    diskused = "Disk used: " + str(disk.percent) + " %"
-
-#echo
-#@dp.message_handler()
-#async def process_reply ():
-#   await bot.send_message.reply(message.from_user.id, 'Replay')
-
+        await message.answer ("Нет такой команды: " + message.text)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
