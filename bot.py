@@ -1,9 +1,10 @@
 
 from config import TOKEN
-import logging
-import os
-import timedocker
-import operatorins
+#import logging
+#import os
+#import sys
+#import time
+import operator
 from datetime import datetime
 import psutil
 from aiogram import Bot, Dispatcher, executor, types
@@ -79,6 +80,7 @@ async def echo(message: types.Message):
         memavail = "Свободно памяти: %.2f GB" % (memory.available / 1000000000)
         memuseperc = "Использовано памяти: " + str(memory.percent) + " %"
         diskused = "Диска использовано: " + str(disk.percent) + " %"
+
         pids = psutil.pids()
         pidsreply = ''
         procs = {}

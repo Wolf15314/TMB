@@ -1,20 +1,11 @@
-FROM python:3.9-alpine
-
+#FROM ubuntu:latest
+FROM amazonlinux:latest
+MAINTAINER Wolf 'ancyfer.w@gmail.com'
+#RUN apt-get update -y
+#RUN apt-get install -y python python3-pip python-dev build-essential
+RUN yum install -y python python3-pip python-dev build-essential
+COPY . /app
 WORKDIR /app
-
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# install psycopg2 dependencies
-RUN apk update \
-    && apk add python3-dev musl-dev
-
-# install dependencies
-COPY requirements.txt /app/requirements.txt
-
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip3 install -r requirements.txt
 ENTRYPOINT ["python3"]
-CMD [bot.py]
+CMD ["bot.py"]
